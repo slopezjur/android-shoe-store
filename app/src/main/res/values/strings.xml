@@ -11,4 +11,5 @@
     <string name="instruction">Instruction</string>
     <string name="shoe_store_instruction">In the next screen, you will fine a list with the best shoes in the world. \n\nYou can scroll the list to find the perfect shoes that fit your expectations. \n\nOnce you have found them, click on them to get more details like the bla, ble and bli.</string>
     <string name="next">Next</string>
+    <string name="shoe_list_button">shoe_list_button</string>
 </resources>
