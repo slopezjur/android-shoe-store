@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">ShoeStore</string>
+    <string name="hello_blank_fragment">Hello Blank Fragment</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="new_account">New account</string>
+    <string name="existing_account">Existing account</string>
 </resources>
