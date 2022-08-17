@@ -16,4 +16,10 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="ShoeStoreStyle">
+        <item name="android:fontFamily">@font/aldrich</item>
+        <item name="android:textSize">@dimen/text_size</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
 </resources>

@@ -10,6 +10,7 @@
 
         <TextView
             android:id="@+id/login_email_tv"
+            style="@style/ShoeStoreStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -22,6 +23,7 @@
 
         <EditText
             android:id="@+id/login_email_et"
+            style="@style/ShoeStoreStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:autofillHints=""
@@ -36,6 +38,7 @@
 
         <TextView
             android:id="@+id/login_password_tv"
+            style="@style/ShoeStoreStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -48,6 +51,7 @@
 
         <EditText
             android:id="@+id/login_password_et"
+            style="@style/ShoeStoreStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:autofillHints=""
@@ -60,23 +64,26 @@
             app:layout_constraintTop_toBottomOf="@+id/login_email_et" />
 
         <Button
-            android:id="@+id/login_new_account"
+            android:id="@+id/login_new_account_button"
+            style="@style/ShoeStoreStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/new_account"
+            app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/login_existing_account"
+            app:layout_constraintEnd_toStartOf="@+id/login_existing_account_button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/login_password_et" />
 
         <Button
-            android:id="@+id/login_existing_account"
+            android:id="@+id/login_existing_account_button"
+            style="@style/ShoeStoreStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/existing_account"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/login_new_account"
+            app:layout_constraintStart_toEndOf="@+id/login_new_account_button"
             app:layout_constraintTop_toBottomOf="@+id/login_password_et" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
