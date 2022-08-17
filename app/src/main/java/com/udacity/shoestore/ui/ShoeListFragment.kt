@@ -8,14 +8,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.R
-import com.udacity.shoestore.ShoeViewModel
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 
 class ShoeListFragment : Fragment() {
 
     private lateinit var binding: FragmentShoeListBinding
 
-    private lateinit var viewModel: ShoeViewModel
+    private lateinit var viewModel: ShoeListViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,7 +22,7 @@ class ShoeListFragment : Fragment() {
     ): View {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_list, container, false)
-        viewModel = ViewModelProvider(this).get(ShoeViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(ShoeListViewModel::class.java)
 
         setHasOptionsMenu(true)
 

@@ -13,4 +13,10 @@
     <string name="next">Next</string>
     <string name="shoe_list_button">shoe_list_button</string>
     <string name="logout">Logout</string>
+    <string name="name">Name</string>
+    <string name="company">Company</string>
+    <string name="shoe_size">Shoe Size</string>
+    <string name="description">description</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
 </resources>
