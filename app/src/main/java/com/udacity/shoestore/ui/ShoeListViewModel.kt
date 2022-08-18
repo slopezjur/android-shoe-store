@@ -36,6 +36,8 @@ class ShoeListViewModel : ViewModel() {
     }
 
     fun addShoe(shoe: Shoe) {
-        _shoeList.value?.toMutableList()?.add(shoe)
+        val shoeListOld = _shoeList.value?.toMutableList()
+        shoeListOld?.add(shoe)
+        _shoeList.value = shoeListOld?.toMutableList()
     }
 }

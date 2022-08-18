@@ -25,9 +25,10 @@ class ShoeDetailFragment : Fragment() {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_detail, container, false)
 
-        val args = ShoeDetailFragmentArgs.fromBundle(requireArguments())
-
-        binding.shoe = args.shoe
+        arguments?.let {
+            val args = ShoeDetailFragmentArgs.fromBundle(it)
+            binding.shoe = args.shoe
+        }
 
         setupNavigation()
 
