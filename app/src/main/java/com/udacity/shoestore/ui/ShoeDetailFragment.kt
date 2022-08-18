@@ -8,8 +8,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.udacity.shoestore.R
-import com.udacity.shoestore.databinding.FragmentLoginBinding
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
+import com.udacity.shoestore.models.Shoe
 
 
 class ShoeDetailFragment : Fragment() {
@@ -22,6 +22,13 @@ class ShoeDetailFragment : Fragment() {
     ): View {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_detail, container, false)
+        binding.shoe = Shoe(
+            "SafeArgs",
+            1.0,
+            "SafeArgs",
+            "SafeArgs",
+            listOf("SafeArgs", "SafeArgs", "SafeArgs")
+        )
 
         setupNavigation()
 
