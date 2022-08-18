@@ -38,6 +38,7 @@
             android:layout_margin="@dimen/layout_margin"
             android:contentDescription="@string/shoe_list_button"
             android:text="@string/new_shoe"
+            android:src="@android:drawable/ic_input_add"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 

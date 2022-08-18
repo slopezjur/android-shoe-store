@@ -18,7 +18,7 @@ class ShoeListViewModel : ViewModel() {
     private fun populateShoeList() {
         val shoeMutableList = mutableListOf<Shoe>()
 
-        repeat(25) {
+        repeat(15) {
             shoeMutableList.add(it, generateRandomShoe(it + 1))
         }
 
@@ -33,5 +33,9 @@ class ShoeListViewModel : ViewModel() {
             description = "Desc$number",
             images = listOf("image1", "image2")
         )
+    }
+
+    fun addShoe(shoe: Shoe) {
+        _shoeList.value?.toMutableList()?.add(shoe)
     }
 }

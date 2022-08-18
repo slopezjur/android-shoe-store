@@ -8,9 +8,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
-import com.udacity.shoestore.models.Shoe
 
 class ShoeDetailFragment : Fragment() {
 
@@ -24,13 +24,10 @@ class ShoeDetailFragment : Fragment() {
     ): View {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_detail, container, false)
-        binding.shoe = Shoe(
-            "SafeArgs",
-            1.0,
-            "SafeArgs",
-            "SafeArgs",
-            listOf("SafeArgs", "SafeArgs", "SafeArgs")
-        )
+
+        val args = ShoeDetailFragmentArgs.fromBundle(requireArguments())
+
+        binding.shoe = args.shoe
 
         setupNavigation()
 
@@ -38,9 +35,11 @@ class ShoeDetailFragment : Fragment() {
     }
 
     private fun setupNavigation() {
-        binding.shoeDetailSaveButton.setOnClickListener(
-            Navigation.createNavigateOnClickListener(R.id.action_shoeDetailFragment_to_shoeListFragment)
-        )
+        binding.shoeDetailSaveButton.setOnClickListener {
+            binding.shoe?.let { viewModel.addShoe(it) }
+            requireView().findNavController()
+                .navigate(R.id.action_shoeDetailFragment_to_shoeListFragment)
+        }
 
         binding.shoeDetailCancelButton.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_shoeDetailFragment_to_shoeListFragment)
