@@ -2,16 +2,17 @@ package com.udacity.shoestore.ui
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 import com.udacity.shoestore.models.Shoe
-
 
 class ShoeListFragment : Fragment() {
 
@@ -32,6 +33,11 @@ class ShoeListFragment : Fragment() {
             }
         })
 
+        binding.shoeListButton.setOnClickListener {
+            Navigation.createNavigateOnClickListener(R.id.action_shoeListFragment_to_shoeDetailFragment)
+            Toast.makeText(context, "Navigating...", Toast.LENGTH_SHORT).show()
+        }
+
         setHasOptionsMenu(true)
 
         return binding.root
@@ -40,6 +46,10 @@ class ShoeListFragment : Fragment() {
     private fun addShoe(shoe: Shoe) {
         val shoeItemView = ShoeItemView(requireContext())
         shoeItemView.setupShoe(shoe)
+        shoeItemView.setOnClickListener {
+            Navigation.createNavigateOnClickListener(R.id.action_shoeListFragment_to_shoeDetailFragment)
+            Toast.makeText(context, shoe.name, Toast.LENGTH_SHORT).show()
+        }
 
         binding.shoeListItem.addView(shoeItemView.rootView)
     }
