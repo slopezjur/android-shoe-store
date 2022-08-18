@@ -33,17 +33,16 @@ class ShoeListFragment : Fragment() {
             }
         })
 
-        // TODO - Fix
         setHasOptionsMenu(true)
 
         return binding.root
     }
 
     private fun addShoe(shoe: Shoe) {
-        val textView = TextView(requireContext())
-        textView.text = shoe.name
+        val textView = ShoeItemView(requireContext())
+        textView.setupShoe(shoe)
 
-        binding.shoeListItem.addView(textView)
+        binding.shoeListItem.addView(textView.rootView)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
