@@ -2,7 +2,6 @@ package com.udacity.shoestore.ui
 
 import android.os.Bundle
 import android.view.*
-import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -39,10 +38,10 @@ class ShoeListFragment : Fragment() {
     }
 
     private fun addShoe(shoe: Shoe) {
-        val textView = ShoeItemView(requireContext())
-        textView.setupShoe(shoe)
+        val shoeItemView = ShoeItemView(requireContext())
+        shoeItemView.setupShoe(shoe)
 
-        binding.shoeListItem.addView(textView.rootView)
+        binding.shoeListItem.addView(shoeItemView.rootView)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
