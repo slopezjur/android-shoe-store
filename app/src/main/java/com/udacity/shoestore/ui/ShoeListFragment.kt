@@ -33,10 +33,9 @@ class ShoeListFragment : Fragment() {
             }
         })
 
-        binding.shoeListButton.setOnClickListener {
+        binding.shoeListButton.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_shoeListFragment_to_shoeDetailFragment)
-            Toast.makeText(context, "Navigating...", Toast.LENGTH_SHORT).show()
-        }
+        )
 
         setHasOptionsMenu(true)
 
@@ -46,10 +45,9 @@ class ShoeListFragment : Fragment() {
     private fun addShoe(shoe: Shoe) {
         val shoeItemView = ShoeItemView(requireContext())
         shoeItemView.setupShoe(shoe)
-        shoeItemView.setOnClickListener {
+        shoeItemView.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_shoeListFragment_to_shoeDetailFragment)
-            Toast.makeText(context, shoe.name, Toast.LENGTH_SHORT).show()
-        }
+        )
 
         binding.shoeListItem.addView(shoeItemView.rootView)
     }
