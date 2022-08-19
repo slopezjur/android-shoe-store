@@ -112,7 +112,7 @@
             android:layout_height="wrap_content"
             android:autofillHints=""
             android:hint="@string/description"
-            android:inputType="number"
+            android:inputType="text"
             android:text="@={shoe.description}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
