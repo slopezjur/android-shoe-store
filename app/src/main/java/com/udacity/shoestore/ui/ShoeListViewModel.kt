@@ -18,7 +18,7 @@ class ShoeListViewModel : ViewModel() {
     private fun populateShoeList() {
         val shoeMutableList = mutableListOf<Shoe>()
 
-        repeat(15) {
+        repeat(10) {
             shoeMutableList.add(it, generateRandomShoe(it + 1))
         }
 
@@ -35,9 +35,13 @@ class ShoeListViewModel : ViewModel() {
         )
     }
 
-    fun addShoe(shoe: Shoe) {
-        val shoeListOld = _shoeList.value?.toMutableList()
-        shoeListOld?.add(shoe)
-        _shoeList.value = shoeListOld?.toMutableList()
+    fun addShoe(shoe: Shoe, editMode: Boolean) {
+        // TODO - Fix. This won't prevent to modify a current list item to remove some of the fields
+        // due to the shared activityViewModels
+        if (!editMode && shoe.name.isNotEmpty()) {
+            val shoeListOld = _shoeList.value?.toMutableList()
+            shoeListOld?.add(shoe)
+            _shoeList.value = shoeListOld?.toMutableList()
+        }
     }
 }

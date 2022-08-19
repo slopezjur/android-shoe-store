@@ -11,12 +11,15 @@ import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
+import com.udacity.shoestore.models.Shoe
 
 class ShoeDetailFragment : Fragment() {
 
     private lateinit var binding: FragmentShoeDetailBinding
 
     private val viewModel: ShoeListViewModel by activityViewModels()
+
+    private var editMode = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,6 +31,7 @@ class ShoeDetailFragment : Fragment() {
         arguments?.let {
             val args = ShoeDetailFragmentArgs.fromBundle(it)
             binding.shoe = args.shoe
+            editMode = true
         }
 
         setupNavigation()
@@ -37,7 +41,10 @@ class ShoeDetailFragment : Fragment() {
 
     private fun setupNavigation() {
         binding.shoeDetailSaveButton.setOnClickListener {
-            binding.shoe?.let { viewModel.addShoe(it) }
+            // TODO - Fix. binding.shoe It is null when we open an empty ShoeDetailFragment to add a new one...
+            //binding.shoe?.let { viewModel.addShoe(it) }
+            viewModel.addShoe(getShoe(), editMode)
+
             requireView().findNavController()
                 .navigate(R.id.action_shoeDetailFragment_to_shoeListFragment)
         }
@@ -46,4 +53,12 @@ class ShoeDetailFragment : Fragment() {
             Navigation.createNavigateOnClickListener(R.id.action_shoeDetailFragment_to_shoeListFragment)
         )
     }
+
+    private fun getShoe() =
+        Shoe(
+            name = binding.shoeDetailNameEt.text.toString(),
+            company = binding.shoeDetailCompanyEt.text.toString(),
+            size = binding.shoeDetailSizeEt.text.toString().toDouble(),
+            description = binding.shoeDetailDescriptionEt.text.toString()
+        )
 }
