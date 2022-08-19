@@ -15,6 +15,8 @@ import com.udacity.shoestore.models.Shoe
 
 class ShoeDetailFragment : Fragment() {
 
+    // In this case I chose the ConstraintLayout. The LinearLayout could result a simpler way of adding Views
+    // but I normally like to have more control and be able to put restrictions between views
     private lateinit var binding: FragmentShoeDetailBinding
 
     private val viewModel: ShoeListViewModel by activityViewModels()

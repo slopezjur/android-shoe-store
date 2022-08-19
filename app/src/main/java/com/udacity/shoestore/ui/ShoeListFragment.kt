@@ -15,6 +15,8 @@ import com.udacity.shoestore.models.Shoe
 
 class ShoeListFragment : Fragment() {
 
+    // I used again ConstraintLayout. In this case I'm not sure if there was a simpler way of
+    // relate all the views between them
     private lateinit var binding: FragmentShoeListBinding
 
     private val viewModel: ShoeListViewModel by activityViewModels()

@@ -12,6 +12,8 @@ import com.udacity.shoestore.databinding.FragmentWelcomeBinding
 
 class WelcomeFragment : Fragment() {
 
+    // In this case I chose the ConstraintLayout. The LinearLayout could result a simpler way of adding Views
+    // but I normally like to have more control and be able to put restrictions between views
     private lateinit var binding: FragmentWelcomeBinding
 
     override fun onCreateView(
